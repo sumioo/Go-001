@@ -2,10 +2,12 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
+	"syscall"
 	"time"
 
 	"golang.org/x/sync/errgroup"
@@ -15,62 +17,48 @@ func hello(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(res, "Hello, My name is mowe")
 }
 
-func myserver(ctx context.Context) error {
+func newServer() *http.Server {
 	http.HandleFunc("/", hello)
 	srv := http.Server{
 		Addr:    "localhost:4000",
 		Handler: http.DefaultServeMux,
 	}
-	go func() {
-		select {
-		case <-ctx.Done():
-			fmt.Println("other service quit and myserver will quit too")
-			srv.Shutdown(context.Background())
-		}
-	}()
-	return srv.ListenAndServe()
-}
-
-func trapSignal(ctx context.Context) error {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt, os.Kill)
-	select {
-	case <-ctx.Done():
-		fmt.Println("other service quit and trapSignal will quit too")
-		return nil
-	case s := <-c:
-		fmt.Printf("receive signal %v and will quit\n", s)
-		return fmt.Errorf("receive terminate signal")
-	}
-}
-
-func fakeService(ctx context.Context, duration time.Duration) error {
-	select {
-	case <-ctx.Done():
-		fmt.Println("other service quit and fakeService will quit too")
-	case <-time.After(duration):
-		fmt.Println("timeout and quit")
-		return fmt.Errorf("fakeService timeout")
-	}
-	return nil
+	return &srv
 }
 
 func main() {
 	eg, ctx := errgroup.WithContext(context.Background())
 	eg.Go(func() error {
-		return trapSignal(ctx)
+		server := newServer()
+		go func() {
+			select {
+			case <-ctx.Done():
+				fmt.Println("http server shutdown form ctx")
+				server.Shutdown(context.Background())
+			}
+		}()
+		return server.ListenAndServe()
 	})
 
 	eg.Go(func() error {
-		return myserver(ctx)
+		exitSignals := []os.Signal{os.Interrupt, syscall.SIGTERM, syscall.SIGQUIT, syscall.SIGINT} // SIGTERM is POSIX specific
+		sig := make(chan os.Signal, len(exitSignals))
+		signal.Notify(sig, exitSignals...)
+		select {
+		case <-ctx.Done():
+			fmt.Println("signal trap exit form ctx")
+			return ctx.Err()
+		case s := <-sig:
+			fmt.Printf("receive signal %v and will quit\n", s)
+			return nil
+		}
 	})
 
 	eg.Go(func() error {
-		return fakeService(ctx, time.Duration(5)*time.Second)
-	})
-
-	eg.Go(func() error {
-		return fakeService(ctx, time.Duration(100)*time.Second)
+		fmt.Println("inject")
+		time.Sleep(time.Second * 200)
+		fmt.Println("inject finish")
+		return errors.New("inject error")
 	})
 
 	if err := eg.Wait(); err != nil {
