@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	pb "hello.com/api"
-	"hello.com/internal/biz"
+	pb "week4/api"
+	"week4/internal/biz"
 )
 
 type articleServer struct {

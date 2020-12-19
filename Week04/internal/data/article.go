@@ -7,8 +7,8 @@ import (
 
 	"database/sql"
 
-	"hello.com/ent"
-	"hello.com/internal/biz"
+	"week4/internal/ent"
+	"week4/internal/biz"
 
 	"github.com/facebook/ent/dialect"
 	entsql "github.com/facebook/ent/dialect/sql"

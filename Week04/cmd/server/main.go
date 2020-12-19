@@ -5,9 +5,9 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
-	pb "hello.com/api"
-	"hello.com/internal/data"
-	"hello.com/internal/service"
+	pb "week4/api"
+	"week4/internal/data"
+	"week4/internal/service"
 )
 
 const (

@@ -3,6 +3,37 @@
   <component name="ChangeListManager">
     <list default="true" id="c1151693-6c2d-4e49-924b-ae97c00357ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Week03/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../Week03/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/article.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/article.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/article.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/article.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article/article.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article/where.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article_create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article_delete.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article_query.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/article_update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/context.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/ent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/enttest/enttest.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/generate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/hook/hook.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/migrate/migrate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/migrate/schema.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/mutation.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/predicate/predicate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/runtime.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/runtime/runtime.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/schema/article.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/tx.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/data/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/data/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/article.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +46,11 @@
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
+    <option name="urls">
+      <list>
+        <option value="file://$USER_HOME$/go" />
+      </list>
+    </option>
   </component>
   <component name="ProjectId" id="1lpeFVOBVTNg1iUg4qhY5mkEjf2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -29,10 +62,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable..is.expanded" value="false" />
+    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
